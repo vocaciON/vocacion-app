@@ -5,14 +5,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-//import { UserService } from 'src/app/services/user.service'; // Asegúrate de tener un servicio de usuario para el registro
+//import { UserService } from 'src/app/services/user.service';  // Servicio de registro
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
   standalone: true,
-  imports: [MatInputModule, MatCardModule, MatButtonModule] // Agregar otros módulos de Angular Material según sea necesario
+  imports: [MatInputModule, MatCardModule, MatButtonModule] // Agregar otros módulos de Angular Material
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -20,7 +20,7 @@ export class RegisterComponent {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private snackBar = inject(MatSnackBar);
-  //private userService = inject(UserService); // Asumiendo que tienes un servicio para registrar usuarios
+  //private userService = inject(UserService);  // Servicio de registro de usuario
 
   constructor() {
     this.registerForm = this.fb.group({
@@ -68,16 +68,16 @@ export class RegisterComponent {
       descripcion: this.registerForm.value.descripcion || null, // Si la descripción está vacía, se envía null
     };
 
-    // Llamar al servicio de registro (este servicio debe ser creado)
-    //this.userService.register(user).subscribe({
-     // next: (response) => {
-       // this.showSnackBar('Registro exitoso');
-       /// this.router.navigate(['/auth/login']); // Redirigir al login después del registro
-     /// },
-     // error: (err) => {
-      //  this.showSnackBar('Error al registrar el usuario');
-     // },
-   // });
+    // Llamar al servicio de registro
+    /*this.userService.register(user).subscribe({
+      next: (response) => {
+        this.showSnackBar('Registro exitoso');
+        this.router.navigate(['/auth/login']); // Redirigir al login después del registro
+      },
+      error: (err) => {
+        this.showSnackBar('Error al registrar el usuario');
+      },
+    });*/
   }
 
   // Método para mostrar el mensaje de snack bar
@@ -85,3 +85,4 @@ export class RegisterComponent {
     this.snackBar.open(message, 'Cerrar', { duration: 3000, verticalPosition: 'top' });
   }
 }
+
