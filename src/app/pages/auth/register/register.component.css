@@ -1,0 +1,138 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  gap: 2rem;
+  margin-top: 70px; /* Espacio para el navbar */
+}
+
+.register-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+}
+
+.register-welcome {
+  flex: 1;
+  text-align: center;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.register-welcome img {
+  width: 100%;
+  max-width: 300px;
+  margin-top: 1rem;
+}
+
+.register-form {
+  flex: 1;
+  max-width: 500px;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-title {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #dd0031; /* Angular primary color */
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #dd0031; /* Angular red */
+  box-shadow: 0 0 8px rgba(221, 0, 49, 0.4); /* Angular red shadow */
+  outline: none;
+}
+
+button {
+  width: 100%;
+  background: linear-gradient(90deg, #dd0031, #e03445, #c3002f); /* Angular-inspired gradient */
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:disabled {
+  background: #ddd;
+}
+
+button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #c3002f, #dd0031); /* Reverse Angular gradient */
+  transform: scale(1.03);
+}
+
+/* Animaciones */
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .register-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .register-welcome {
+    transform: translateY(-50px);
+    animation: slideInTop 0.8s ease-out forwards;
+  }
+
+  @keyframes slideInTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
