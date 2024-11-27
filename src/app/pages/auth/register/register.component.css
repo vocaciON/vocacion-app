@@ -19,9 +19,6 @@
   flex: 1;
   text-align: center;
   max-width: 400px;
-  opacity: 0;
-  transform: translateX(-50px);
-  animation: slideInLeft 0.8s ease-out forwards;
 }
 
 .register-welcome img {
@@ -37,9 +34,6 @@
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  opacity: 0;
-  transform: translateX(50px);
-  animation: slideInRight 0.8s ease-out forwards;
 }
 
 .form-group {
@@ -69,7 +63,7 @@ textarea:focus {
   outline: none;
 }
 
-button {
+button [type="submit"]{
   width: 100%;
   background: linear-gradient(90deg, #dd0031, #e03445, #c3002f); /* Angular-inspired gradient */
   color: white;
@@ -90,49 +84,10 @@ button:hover:not(:disabled) {
   transform: scale(1.03);
 }
 
-/* Animaciones */
-@keyframes slideInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .register-content {
     flex-direction: column;
     align-items: center;
-  }
-
-  .register-welcome {
-    transform: translateY(-50px);
-    animation: slideInTop 0.8s ease-out forwards;
-  }
-
-  @keyframes slideInTop {
-    0% {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 }

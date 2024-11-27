@@ -46,7 +46,7 @@ export class RegisterComponent {
   }
 
   controlHasError(control: string, error: string): boolean {
-    return this.registerForm.controls[control].hasError(error) && this.registerForm.controls[control].touched;
+    return  this.registerForm.controls[control].hasError(error) && this.registerForm.controls[control].touched;
   }
 
   onSubmit() {
