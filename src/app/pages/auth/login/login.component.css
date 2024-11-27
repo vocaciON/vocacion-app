@@ -1,0 +1,219 @@
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #fafafa;  /* Fondo gris claro */
+  overflow-x: hidden; /* Para evitar desplazamiento horizontal */
+}
+
+/* Contenedor principal */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 15px;
+  background: #fafafa;
+}
+
+/* Estilo de la tarjeta de login */
+.login-card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+/* Animación para deslizamiento hacia arriba */
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Logo */
+.login-logo img {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+/* Mensaje de bienvenida */
+.welcome-message {
+  margin-bottom: 30px;
+}
+
+.welcome-message .login-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #e03e36;  /* Rojo Angular */
+  margin-bottom: 10px;
+}
+
+.welcome-message p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Estilo para los campos del formulario */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  color: #333;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #e03e36; /* Borde rojo Angular */
+  box-shadow: 0 0 5px rgba(224, 62, 54, 0.5); /* Sombra sutil al seleccionar */
+  outline: none;
+}
+
+/* Estilo para los botones */
+button[type="submit"] {
+  background-color: #e03e36; /* Rojo Angular */
+  color: white;
+  border: none;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #b5291b; /* Rojo más oscuro al hacer hover */
+}
+
+/* Estilo para los botones sociales */
+.social-login {
+  margin-top: 30px;
+}
+
+.social-text {
+  color: #777;
+  font-size: 14px;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+}
+
+.social-btn i {
+  margin-right: 8px;
+}
+
+.social-btn.google {
+  background-color: #db4437; /* Rojo Google */
+  color: white;
+}
+
+.social-btn.facebook {
+  background-color: #3b5998; /* Azul Facebook */
+  color: white;
+}
+
+.social-btn:hover {
+  opacity: 0.8;
+}
+
+/* Estilo para el login social */
+.register-link {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+.register-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 30px;
+    max-width: 100%;
+  }
+
+  .login-logo img {
+    width: 100px;
+  }
+
+  .welcome-message .login-title {
+    font-size: 24px;
+  }
+
+  .form-control {
+    font-size: 14px;
+  }
+
+  .btn {
+    font-size: 14px;
+  }
+
+  .social-btn {
+    width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .login-logo img {
+    width: 80px;
+  }
+
+  .welcome-message .login-title {
+    font-size: 20px;
+  }
+
+  .social-btn {
+    width: 120px;
+  }
+}
