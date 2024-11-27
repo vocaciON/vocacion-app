@@ -6,6 +6,7 @@ import { AuthRequest } from '../../shared/models/auth-request.model';
 import { Observable, tap } from 'rxjs';
 import { AuthResponse } from '../../shared/models/auth.response.model';
 import { RegisterRequest } from '../../shared/models/register-request.moderl';
+import { RegisterResponse } from '../../shared/models/register-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,16 @@ export class AuthService {
 
   logout(): void {
     this.storageServie.clearAuthData();
+  }
+
+
+  isAuthenticated(): Boolean {
+    return this.storageServie.getAuthData() !==null;
+  }
+
+  getUser(): AuthResponse | null {
+    const authData = this.storageServie.getAuthData();
+    return authData ? authData : null;
   }
 
 
