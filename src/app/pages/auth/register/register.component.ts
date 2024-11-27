@@ -1,19 +1,17 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../core/services/auth.service';
-//import { UserService } from 'src/app/services/user.service';  // Servicio de registro
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
   standalone: true,
-  imports: [MatInputModule, MatCardModule, MatButtonModule] // Agregar otros módulos de Angular Material
+  imports: [ReactiveFormsModule, MatInputModule, MatCardModule, MatButtonModule], // Incluye ReactiveFormsModule aquí
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -21,23 +19,21 @@ export class RegisterComponent {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private snackBar = inject(MatSnackBar);
-  private authService = inject(AuthService);  // Servicio de registro de usuario
 
   constructor() {
     this.registerForm = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(2)]], // Nombre
-      apellido: ['', [Validators.required, Validators.minLength(2)]], // Apellido
-      email: ['', [Validators.required, Validators.email]], // Email
-      password: ['', [Validators.required, Validators.minLength(6)]], // Contraseña
-      confirmPassword: ['', [Validators.required, this.passwordMatchValidator]], // Confirmar Contraseña
-      telefono: ['', [Validators.required, Validators.pattern('^[0-9]{9,15}$')]], // Teléfono
-      fechaNacimiento: ['', [Validators.required]], // Fecha de Nacimiento
-      gradoAcademico: ['', [Validators.required]], // Grado Académico
-      descripcion: [''] // Descripción (no obligatoria)
+      nombre: ['', [Validators.required, Validators.minLength(2)]],
+      apellido: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', [Validators.required, this.passwordMatchValidator]],
+      telefono: ['', [Validators.required, Validators.pattern('^[0-9]{9,15}$')]],
+      fechaNacimiento: ['', [Validators.required]],
+      gradoAcademico: ['', [Validators.required]],
+      descripcion: [''],
     });
   }
 
-  // Validador personalizado para verificar que las contraseñas coincidan
   private passwordMatchValidator(control: any): { [key: string]: boolean } | null {
     const password = control?.parent?.get('password')?.value;
     if (password && control.value !== password) {
@@ -46,32 +42,15 @@ export class RegisterComponent {
     return null;
   }
 
-  // Control de errores para los campos del formulario
-  controlHasError(control: string, error: string) {
+  controlHasError(control: string, error: string): boolean {
     return this.registerForm.controls[control].hasError(error) && this.registerForm.controls[control].touched;
   }
 
-  // Método para enviar el formulario
   onSubmit() {
     if (this.registerForm.invalid) {
-       // Si el formulario es inválido, no se hace nada
-       const userData = this.registerForm.value;
-
-       this.authService.register(userData).subscribe({
-        next: (response) => {
-          this.showSnackBar('Registro exitoso');
-          this.router.navigate(['/auth/login']); // Redirigir al login después del registro
-        },
-        error: (err) => {
-          this.showSnackBar('Error al registrar el usuario');
-        },
-      });
-    }
+      return;
     }
 
-
-
-    // Crear el objeto de usuario para el registro
     const user = {
       nombre: this.registerForm.value.nombre,
       apellido: this.registerForm.value.apellido,
@@ -80,15 +59,12 @@ export class RegisterComponent {
       telefono: this.registerForm.value.telefono,
       fechaNacimiento: this.registerForm.value.fechaNacimiento,
       gradoAcademico: this.registerForm.value.gradoAcademico,
-      descripcion: this.registerForm.value.descripcion || null, // Si la descripción está vacía, se envía null
+      descripcion: this.registerForm.value.descripcion || null,
     };
 
-    // Llamar al servicio de registro
-    
-
-  // Método para mostrar el mensaje de snack bar
-  private showSnackBar(message: string): void {
-    this.snackBar.open(message, 'Cerrar', { duration: 3000, verticalPosition: 'top' });
+    // Aquí realizarías la llamada al servicio de registro
+    console.log(user);
+    this.snackBar.open('Registro exitoso', 'Cerrar', { duration: 3000, verticalPosition: 'top' });
+    this.router.navigate(['/auth/login']);
   }
 }
-
