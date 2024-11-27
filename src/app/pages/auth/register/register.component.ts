@@ -5,13 +5,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, MatInputModule, MatCardModule, MatButtonModule], // Incluye ReactiveFormsModule aquí
+  imports: [ReactiveFormsModule, MatInputModule, MatCardModule, MatButtonModule, CommonModule], // Incluye ReactiveFormsModule aquí
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -19,6 +21,7 @@ export class RegisterComponent {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private snackBar = inject(MatSnackBar);
+  private authService = inject(AuthService)
 
   constructor() {
     this.registerForm = this.fb.group({

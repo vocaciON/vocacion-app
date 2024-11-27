@@ -18,10 +18,10 @@
             name="email"
             placeholder="Ingresa tu correo"
           />
-          @if (controlHasErro('email','required')) {
+          @if (controlHasError('email','required')) {
             <mat-error>Este campo es obligatorio</mat-error>
           }
-          @if (controlHasErro('email','email')) {
+          @if (controlHasError('email','email')) {
             <mat-error>Introduzca un correo electronico valido</mat-error>
           }
         </div>
@@ -35,7 +35,7 @@
             name="password"
             placeholder="Ingresa tu contraseña"
           />
-          @if (controlHasErro('password','required')) {
+          @if (controlHasError('password','required')) {
             <mat-error>Este campo es obligatorio</mat-error>}
         </div>
         <!-- Botón Olvidé mi Contraseña -->
