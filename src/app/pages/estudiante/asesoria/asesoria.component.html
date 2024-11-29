@@ -1,1 +1,22 @@
-<p>asesoria works!</p>
+<div class="asesoria-container">
+    <h2>¡Bienvenido a la Asesoría!</h2>
+    <p>Aquí puedes solicitar asesoría de cualquier experto en la lista.</p>
+  
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  
+    <div *ngIf="experts.length > 0; else noExperts">
+      <h3>Lista de Expertos:</h3>
+      <ul>
+        <li *ngFor="let expert of experts">
+          <strong>{{ expert.name }}</strong> - Especialidad: {{ expert.specialization }}
+        </li>
+      </ul>
+    </div>
+    
+    <ng-template #noExperts>
+      <p>No hay expertos disponibles en este momento.</p>
+    </ng-template>
+  </div>
+  
