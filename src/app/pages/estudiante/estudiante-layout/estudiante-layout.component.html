@@ -1,1 +1,41 @@
-<p>estudiante-layout works!</p>
+<!-- estudiante-layout.component.html -->
+<div class="estudiante-layout">
+    <!-- Barra de navegación lateral -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <img src="assets/logo.png" alt="Logo" class="logo" />
+        <h3>Bienvenido, {{ studentName }}</h3>
+      </div>
+      <ul class="nav-links">
+        <li><a routerLink="/compras" routerLinkActive="active">Compras</a></li>
+        <li><a routerLink="/informacion" routerLinkActive="active">Información</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active">Perfil</a></li>
+        <li><a routerLink="/profile/update" routerLinkActive="active">Actualizar Perfil</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Contenedor principal -->
+    <div class="content">
+      <header class="content-header">
+        <h2>Bienvenido al portal de tu cuenta, {{ studentName }}!</h2>
+        <p>Accede a tus compras, información y más.</p>
+      </header>
+  
+      <!-- Cuadros interactivos -->
+      <div class="cards">
+        <div class="card">
+          <h3><mat-icon>shopping_cart</mat-icon> Compras</h3>
+          <p>Gestiona tus compras y pagos.</p>
+        </div>
+        <div class="card">
+          <h3><mat-icon>info</mat-icon> Información</h3>
+          <p>Actualiza tu información personal.</p>
+        </div>
+        <div class="card">
+          <h3><mat-icon>account_circle</mat-icon> Perfil</h3>
+          <p>Ve y edita tu perfil.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
