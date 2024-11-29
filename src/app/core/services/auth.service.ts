@@ -36,7 +36,7 @@ export class AuthService {
   }
 
 
-  isAuthenticated(): Boolean {
+  isAuthenticated(): boolean {
     return this.storageServie.getAuthData() !==null;
   }
 

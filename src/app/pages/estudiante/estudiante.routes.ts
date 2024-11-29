@@ -6,7 +6,7 @@ import { UpdateProfileComponent } from '../../shared/components/update-profile/u
 import { UserProfileComponent } from '../../shared/components/user-profile/user-profile.component';
 import { EstudianteLayoutComponent } from './estudiante-layout/estudiante-layout.component';
 
-export const authRoutes: Routes = [
+export const estudianteRoutes: Routes = [
 
     {
         path:'',
@@ -15,7 +15,8 @@ export const authRoutes: Routes = [
             {path:'compras',component:ComprasComponent},
             {path:'informacion', component:InformacionComponent},             
             {path:'profile',component:UserProfileComponent},
-            {path:'profile/update', component:UpdateProfileComponent}      
+            {path:'profile/update', component:UpdateProfileComponent}
+                 
             
         ]
     }

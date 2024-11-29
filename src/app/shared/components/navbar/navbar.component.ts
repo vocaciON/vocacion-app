@@ -1,31 +1,28 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';  // Importamos Router para navegar
-import { AuthService } from '../../../core/services/auth.service';// Importa el servicio de autenticación si lo tienes
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { AuthService } from '../../../core/services/auth.service'; // Asegúrate de que el servicio esté importado
+import { RouterLink, RouterOutlet,Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   standalone: true,
-  imports: [RouterLink]  // Añadimos RouterLink como importación
+  imports: [RouterLink, RouterOutlet,CommonModule]  // Añadimos RouterLink como importación
 })
 export class NavbarComponent {
-  // Propiedad para verificar si el usuario está autenticado
-  constructor(private router: Router, private authService: AuthService) {}
+  
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  // Método para navegar a la página de perfil
-  goToProfile() {
-    this.router.navigate(['/profile']);
+  isAuthenticated: boolean = true;
+
+  ngOnInit(): void {
+    this.isAuthenticated = this.authService.isAuthenticated();
   }
 
-  // Verifica si el usuario está autenticado
-  isAuthenticated(): boolean {
-    return this.isAuthenticated();  // Llamamos al método de autenticación
-  }
-
-  // Método de logout
-  logout() {
-    this.authService.logout();  // Llamamos al método de logout
-    this.router.navigate(['/auth/login']);  // Redirige al login
+  logout(): void {
+    this.authService.logout();  // Método para cerrar sesión
+    this.isAuthenticated = false;  // Redirige a la página de login
   }
 }

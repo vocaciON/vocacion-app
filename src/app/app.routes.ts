@@ -9,6 +9,15 @@ export const routes: Routes = [
 
     {
         path:'auth',
-        loadChildren:()=> import('./pages/auth/auth.routes').then(c => c.authRoutes)
+        loadChildren:()=> import('./pages/auth/auth.routes').then(a => a.authRoutes)
+    },
+
+    {
+        path:'estudiante',
+        loadChildren: () => import('./pages/estudiante/estudiante.routes').then(e => e.estudianteRoutes)
     }
+
+
+
+
 ];
