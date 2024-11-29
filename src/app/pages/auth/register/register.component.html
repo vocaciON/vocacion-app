@@ -1,0 +1,104 @@
+<div class="register-container">
+  <div class="register-content">
+    <!-- Bienvenida -->
+    <div class="register-welcome">
+      <h2 class="register-title">¡Únete a VocaciON!</h2>
+      <p class="register-subtitle">
+        Explora nuevas oportunidades, conecta con profesionales y da el siguiente paso hacia tu éxito profesional.
+      </p>
+      <img src="assets/imagenes/register-welcome.png" alt="Bienvenido a VocaciON" class="welcome-image" />
+    </div>
+
+    <!-- Formulario de Registro -->
+    <div class="register-form shadow">
+      <h3 class="form-title">Crea tu cuenta</h3>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput formControlName="nombre" type="text" placeholder="Ingresa tu nombre" />
+            <mat-error *ngIf="controlHasError('nombre', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('nombre', 'minlength')">El nombre debe tener al menos 2 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Apellido</mat-label>
+            <input matInput formControlName="apellido" type="text" placeholder="Ingresa tu apellido" />
+            <mat-error *ngIf="controlHasError('apellido', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('apellido', 'minlength')">El apellido debe tener al menos 2 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" placeholder="Ingresa tu correo" />
+            <mat-error *ngIf="controlHasError('email', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('email', 'email')">Introduce un correo válido</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput formControlName="password" type="password" placeholder="Ingresa tu contraseña" />
+            <mat-error *ngIf="controlHasError('password', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('password', 'minlength')">Debe tener al menos 6 caracteres</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Confirmar Contraseña</mat-label>
+            <input matInput formControlName="confirmPassword" type="password" placeholder="Confirma tu contraseña" />
+            <mat-error *ngIf="controlHasError('confirmPassword', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('confirmPassword', 'passwordMismatch')">Las contraseñas no coinciden</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Teléfono</mat-label>
+            <input matInput formControlName="telefono" type="text" placeholder="Ingresa tu teléfono" />
+            <mat-error *ngIf="controlHasError('telefono', 'required')">Este campo es obligatorio</mat-error>
+            <mat-error *ngIf="controlHasError('telefono', 'pattern')">Introduce un número válido</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input matInput formControlName="fechaNacimiento" type="date" />
+            <mat-error *ngIf="controlHasError('fechaNacimiento', 'required')">Este campo es obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Grado Académico</mat-label>
+            <input matInput formControlName="gradoAcademico" type="text" placeholder="Ingresa tu grado académico" />
+            <mat-error *ngIf="controlHasError('gradoAcademico', 'required')">Este campo es obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field class="full-width">
+            <mat-label>Descripción (Opcional)</mat-label>
+            <textarea matInput formControlName="descripcion" rows="3" placeholder="Cuéntanos más sobre ti"></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="form-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Registrarme</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Registro de cuenta existente -->
+  <div class="register-link">
+    <p>¿Ya tienes una cuenta? <a routerLink="/auth/login">Inicia sesión aquí</a></p>
+  </div>
+</div>

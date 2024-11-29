@@ -1,0 +1,220 @@
+/* Layout General */
+.estudiante-layout {
+  display: flex;
+  height: 100vh;
+  background-color: #f4f7fa; /* Fondo claro */
+  position: relative;
+}
+
+/* Barra Lateral */
+.sidebar {
+  width: 250px; /* Ancho fijo para siempre mostrar texto e iconos */
+  background-color: #333; /* Color oscuro para el sidebar */
+  color: white;
+  padding: 1rem 0;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 10;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Barra lateral header */
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.sidebar .logo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar .logo:hover {
+  transform: scale(1.1);
+}
+
+/* Título de la barra lateral */
+.sidebar h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #ffa500; /* Usamos un color de resaltado suave */
+  margin-top: 0;
+}
+
+/* Enlaces del Menú Lateral */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.nav-links li {
+  margin: 1rem 0;
+}
+
+/* Enlaces del menú */
+.nav-links a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  transition: background 0.3s ease, transform 0.2s ease;
+  overflow: hidden;
+}
+
+.nav-links a mat-icon {
+  margin-right: 1rem;
+  font-size: 1.3rem;
+}
+
+/* Efecto hover del menú lateral */
+.nav-links a:hover {
+  background: #ff5722; /* Naranja suave */
+  transform: translateX(5px);
+}
+
+/* Enlace activo */
+.nav-links a.active {
+  background-color: #ffa500; /* Resaltado del enlace activo */
+  font-weight: bold;
+}
+
+/* Contenido Principal */
+.content {
+  margin-left: 250px; /* Deja espacio para el sidebar fijo */
+  padding: 2rem;
+  flex-grow: 1;
+  z-index: 5;
+  transition: margin-left 0.3s ease;
+}
+
+/* Cuadros Interactivos */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem; /* Espacio entre el contenido principal y las cards */
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 4;
+}
+
+/* Efecto hover con colores personalizados para cada card */
+.card:hover:nth-child(1) {
+  background-color: #ff5722; /* Naranja para la primera card */
+  transform: translateY(-5px); /* Sutil desplazamiento hacia arriba */
+}
+
+.card:hover:nth-child(2) {
+  background-color: #4caf50; /* Verde para la segunda card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(3) {
+  background-color: #2196f3; /* Azul para la tercera card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(4) {
+  background-color: #9c27b0; /* Morado para la cuarta card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(5) {
+  background-color: #ff9800; /* Naranja más claro para la quinta card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(6) {
+  background-color: #8bc34a; /* Verde más claro para la sexta card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(7) {
+  background-color: #03a9f4; /* Azul claro para la séptima card */
+  transform: translateY(-5px);
+}
+
+/* Efecto de sombra al pasar el cursor */
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al hacer hover */
+}
+
+/* Títulos y descripciones dentro de la card */
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Header del contenido */
+.content-header {
+  margin-bottom: 2rem;
+}
+
+.content-header h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.content-header p {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 60px; /* Sidebar más estrecho en dispositivos móviles */
+  }
+
+  .content {
+    margin-left: 60px; /* Asegura que el contenido se acomode correctamente en móviles */
+  }
+
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Menor tamaño de las cards en dispositivos pequeños */
+  }
+
+  .card {
+    padding: 1.5rem; /* Menos padding para dispositivos móviles */
+  }
+}
