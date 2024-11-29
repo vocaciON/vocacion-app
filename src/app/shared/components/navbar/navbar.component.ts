@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
   standalone: true,
-  imports: [RouterLink, RouterOutlet,CommonModule]  // Añadimos RouterLink como importación
+  imports: [RouterLink,CommonModule]  // Añadimos RouterLink como importación
 })
 export class NavbarComponent {
   

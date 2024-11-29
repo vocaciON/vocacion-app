@@ -5,7 +5,7 @@ import { StorageService } from './storage.service';
 import { AuthRequest } from '../../shared/models/auth-request.model';
 import { Observable, tap } from 'rxjs';
 import { AuthResponse } from '../../shared/models/auth.response.model';  // Asegúrate de que el nombre del archivo sea correcto
-import { RegisterRequest } from '../../shared/models/register-request.model';  // Corrige el nombre del archivo
+import { RegisterRequest } from '../../shared/models/register-request.moderl';  // Corrige el nombre del archivo
 import { RegisterResponse } from '../../shared/models/register-response.model';  // Asegúrate de que el nombre del archivo sea correcto
 
 @Injectable({

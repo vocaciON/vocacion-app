@@ -4,8 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-informacion',
   imports: [],
   templateUrl: './informacion.component.html',
-  styleUrl: './informacion.component.css'
+  styleUrl: './informacion.component.css' 
 })
 export class InformacionComponent {
-
+  // Lógica del componente
 }

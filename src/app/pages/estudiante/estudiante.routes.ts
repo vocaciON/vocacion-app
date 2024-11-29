@@ -16,7 +16,7 @@ export const estudianteRoutes: Routes = [
             {path:'informacion', component:InformacionComponent},             
             {path:'profile',component:UserProfileComponent},
             {path:'profile/update', component:UpdateProfileComponent}
-                 
+              
             
         ]
     }
