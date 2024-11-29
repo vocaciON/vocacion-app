@@ -116,14 +116,52 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 2rem;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
   z-index: 4;
 }
 
-.card:hover {
-  transform: translateY(-10px);
+/* Efecto hover con colores personalizados para cada card */
+.card:hover:nth-child(1) {
+  background-color: #ff5722; /* Naranja para la primera card */
+  transform: translateY(-5px); /* Sutil desplazamiento hacia arriba */
 }
 
+.card:hover:nth-child(2) {
+  background-color: #4caf50; /* Verde para la segunda card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(3) {
+  background-color: #2196f3; /* Azul para la tercera card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(4) {
+  background-color: #9c27b0; /* Morado para la cuarta card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(5) {
+  background-color: #ff9800; /* Naranja más claro para la quinta card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(6) {
+  background-color: #8bc34a; /* Verde más claro para la sexta card */
+  transform: translateY(-5px);
+}
+
+.card:hover:nth-child(7) {
+  background-color: #03a9f4; /* Azul claro para la séptima card */
+  transform: translateY(-5px);
+}
+
+/* Efecto de sombra al pasar el cursor */
+.card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al hacer hover */
+}
+
+/* Títulos y descripciones dentro de la card */
 .card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
