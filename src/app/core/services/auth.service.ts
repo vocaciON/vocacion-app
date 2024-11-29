@@ -59,4 +59,10 @@ export class AuthService {
   getUser(): AuthResponse | null {
     return this.storageServie.getAuthData();  // Retorna los datos de usuario almacenados en el localStorage
   }
+
+  getUserRole(): string | null {
+    const authData = this.storageServie.getAuthData(); // Asegúrate de que storageService esté correctamente escrito.
+    return authData ? authData.role : null;
+  }
+  
 }
