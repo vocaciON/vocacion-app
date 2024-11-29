@@ -1,86 +1,113 @@
 /* Navbar Container */
 .custom-navbar {
-    background: linear-gradient(90deg, #dd0031, #c3002f, #7702ff); /* Angular gradient */
-    animation: gradient-animation 8s ease infinite; /* Animación de fondo */
-    color: white;
-    padding: 0.8rem 0;
-    z-index: 1050;
-  }
-  
-  /* Gradient Animation */
-  @keyframes gradient-animation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  /* Navbar Brand */
+  background: linear-gradient(90deg, #dd0031, #c3002f, #7702ff); /* Angular gradient */
+  animation: gradient-animation 8s ease infinite; /* Animación de fondo */
+  color: white;
+  padding: 0.8rem 0;
+  z-index: 1050;
+}
+
+/* Gradient Animation */
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navbar Brand */
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand img:hover {
+  transform: scale(1.2);
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+  font-size: 1rem;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffa500; /* Highlight color */
+}
+
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #ffa500;
+}
+
+/* Buttons */
+.btn-outline-light {
+  color: white;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: white;
+  color: #dd0031; /* Angular red */
+}
+
+.btn-light {
+  background-color: white;
+  color: #dd0031;
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #ffa500;
+  color: white;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .navbar-brand {
-    color: white;
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-  }
-  
-  .navbar-brand img {
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .navbar-brand img:hover {
-    transform: scale(1.2);
-  }
-  
-  /* Navbar Links */
-  .navbar-nav .nav-link {
-    font-size: 1rem;
-    color: white;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: #ffa500; /* Highlight color */
-  }
-  
-  .navbar-nav .nav-link.active {
-    font-weight: bold;
-    border-bottom: 2px solid #ffa500;
-  }
-  
-  /* Buttons */
-  .btn-outline-light {
-    color: white;
-    border: 1px solid white;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-outline-light:hover {
-    background-color: white;
-    color: #dd0031; /* Angular red */
-  }
-  
-  .btn-light {
-    background-color: white;
-    color: #dd0031;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-light:hover {
-    background-color: #ffa500;
-    color: white;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .navbar-brand {
       font-size: 1.2rem;
-    }
-    .navbar-nav .nav-link {
-      font-size: 0.9rem;
-    }
-    .btn {
-      font-size: 0.85rem;
-    }
   }
-  
+  .navbar-nav .nav-link {
+      font-size: 0.9rem;
+  }
+  .btn {
+      font-size: 0.85rem;
+  }
+
+  .navbar-nav {
+      margin-top: 10px;
+  }
+
+  .navbar-toggler {
+      border-color: white;
+  }
+
+  .navbar-toggler-icon {
+      background-color: white;
+  }
+
+  .navbar-collapse {
+      justify-content: flex-end;
+  }
+}
+
+/* Estilo para la opción "Mi Perfil" */
+.navbar-nav .btn {
+  margin-left: 15px;
+  font-weight: bold;
+  background-color: #ffc107;
+  color: white;
+}
+
+.navbar-nav .btn:hover {
+  background-color: #ff5722;
+}
