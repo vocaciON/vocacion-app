@@ -48,7 +48,7 @@ export class LoginComponent {
       (response) => {
         console.log('Inicio de sesión exitoso', response);
         this.snackBar.open('Inicio de sesión exitoso', 'Cerrar', { duration: 3000, verticalPosition: 'top' });
-        this.router.navigate(['/dashboard']); // Cambia la ruta según sea necesario
+        this.router.navigate(['/estudiante']); // Cambia la ruta según sea necesario
       },
       (error) => {
         console.error('Error al iniciar sesión', error);

@@ -54,6 +54,7 @@ export class RegisterComponent {
     return this.registerForm.valid;
   }
 
+  // Método que se ejecuta cuando el formulario es enviado
   onSubmit() {
     if (this.registerForm.invalid) {
       return;
@@ -70,9 +71,20 @@ export class RegisterComponent {
       descripcion: this.registerForm.value.descripcion || null,
     };
 
-    // Aquí realizarías la llamada al servicio de registro
-    console.log(user);
-    this.snackBar.open('Registro exitoso', 'Cerrar', { duration: 3000, verticalPosition: 'top' });
-    this.router.navigate(['/auth/login']);
+    // Realiza la llamada al servicio para registrar al usuario
+    this.authService.register(user).subscribe(
+      (response) => {
+        console.log('Registro exitoso', response);
+        // Muestra un mensaje de éxito
+        this.snackBar.open('Registro exitoso', 'Cerrar', { duration: 3000, verticalPosition: 'top' });
+        // Redirige al login después de un registro exitoso
+        this.router.navigate(['/auth/login']);
+      },
+      (error) => {
+        console.error('Error en el registro', error);
+        // Muestra un mensaje de error si algo salió mal
+        this.snackBar.open('Error en el registro. Intenta de nuevo.', 'Cerrar', { duration: 3000, verticalPosition: 'top' });
+      }
+    );
   }
 }
