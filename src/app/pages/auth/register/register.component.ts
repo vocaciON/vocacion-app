@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule, MatInputModule, MatCardModule, MatButtonModule, CommonModule], // Incluye ReactiveFormsModule aquí
+  imports: [ReactiveFormsModule, MatInputModule, MatCardModule, MatButtonModule, CommonModule],
 })
 export class RegisterComponent {
   registerForm: FormGroup;
@@ -21,7 +21,7 @@ export class RegisterComponent {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private snackBar = inject(MatSnackBar);
-  private authService = inject(AuthService)
+  private authService = inject(AuthService);
 
   constructor() {
     this.registerForm = this.fb.group({
@@ -31,8 +31,8 @@ export class RegisterComponent {
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required, this.passwordMatchValidator]],
       telefono: ['', [Validators.required, Validators.pattern('^[0-9]{9,15}$')]],
-      fechaNacimiento: ['', [Validators.required]],
-      gradoAcademico: ['', [Validators.required]],
+      fechaNacimiento: ['', [Validators.required]], // Validación obligatoria
+      gradoAcademico: [''],
       descripcion: [''],
     });
   }
@@ -46,7 +46,12 @@ export class RegisterComponent {
   }
 
   controlHasError(control: string, error: string): boolean {
-    return  this.registerForm.controls[control].hasError(error) && this.registerForm.controls[control].touched;
+    return this.registerForm.controls[control].hasError(error) && this.registerForm.controls[control].touched;
+  }
+
+  // Método para verificar si el formulario está correctamente habilitado
+  isFormValid(): boolean {
+    return this.registerForm.valid;
   }
 
   onSubmit() {

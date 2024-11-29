@@ -36,16 +36,24 @@ export class LoginComponent {
   onSubmit() {
     if (this.loginForm.invalid) {
       return; // Detén el flujo si el formulario es inválido
-    };
-
+    }
+  
     const loginData = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-
-    // Aquí realizarías la llamada al servicio de autenticación
-    console.log('Datos de inicio de sesión:', loginData);
-    this.snackBar.open('Inicio de sesión exitoso', 'Cerrar', { duration: 3000, verticalPosition: 'top' });
-    this.router.navigate(['/dashboard']); // Cambia la ruta según sea necesario
+  
+    // Llamada al servicio de autenticación
+    this.authService.login(loginData).subscribe(
+      (response) => {
+        console.log('Inicio de sesión exitoso', response);
+        this.snackBar.open('Inicio de sesión exitoso', 'Cerrar', { duration: 3000, verticalPosition: 'top' });
+        this.router.navigate(['/dashboard']); // Cambia la ruta según sea necesario
+      },
+      (error) => {
+        console.error('Error al iniciar sesión', error);
+        this.snackBar.open('Error al iniciar sesión', 'Cerrar', { duration: 3000, verticalPosition: 'top' });
+      }
+    );
   }
 }
